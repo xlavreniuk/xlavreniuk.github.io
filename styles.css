@@ -1,10 +1,10 @@
 :root {
-  --red: #c9162e;
-  --deep-red: #8f1020;
-  --yellow: #ffcf32;
+  --red: #d71920;
+  --deep-red: #a80f18;
+  --yellow: #ffc72c;
   --black: #151515;
   --white: #ffffff;
-  --paper: #fff8eb;
+  --paper: #fff6df;
   --muted: #6b625f;
   --border: #ecd9c0;
   --shadow: 0 18px 50px rgba(21, 21, 21, 0.13);
@@ -20,7 +20,9 @@ html {
 
 body {
   margin: 0;
-  background: var(--paper);
+  background:
+    radial-gradient(circle at top left, rgba(255, 199, 44, 0.42), transparent 28rem),
+    linear-gradient(180deg, #fff9e9 0%, var(--paper) 44%, #ffffff 100%);
   color: var(--black);
   font-family: Arial, Helvetica, sans-serif;
   line-height: 1.6;
@@ -121,6 +123,21 @@ a {
   gap: 46px;
   min-height: calc(100vh - 74px);
   padding-top: 54px;
+  position: relative;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  right: 12%;
+  bottom: 40px;
+  width: 190px;
+  height: 18px;
+  border-radius: 999px;
+  background: var(--yellow);
+  box-shadow: 0 26px 0 var(--red), 0 52px 0 var(--yellow);
+  opacity: 0.22;
+  pointer-events: none;
 }
 
 .hero h1 {
@@ -187,6 +204,7 @@ a {
   border-radius: 8px;
   background: var(--white);
   box-shadow: var(--shadow);
+  border-top: 10px solid var(--yellow);
 }
 
 .ticket,
@@ -246,8 +264,7 @@ a {
 
 .overview-grid,
 .kpi-grid,
-.charts-grid,
-.team-grid {
+.charts-grid {
   display: grid;
   gap: 18px;
 }
@@ -259,8 +276,7 @@ a {
 .info-card,
 .step-card,
 .kpi-card,
-.chart-card,
-.team-card {
+.chart-card {
   border: 1px solid var(--border);
   border-radius: 8px;
   background: var(--white);
@@ -288,14 +304,28 @@ a {
 
 .process-flow {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(6, minmax(120px, 1fr));
+  align-items: center;
   gap: 12px;
 }
 
 .step-card {
-  min-height: 150px;
+  min-height: 122px;
   padding: 18px;
+  border: 2px solid var(--yellow);
+  cursor: pointer;
   background: linear-gradient(180deg, var(--white), #fff0d3);
+  color: var(--black);
+  font: inherit;
+  text-align: left;
+  transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+}
+
+.step-card:hover,
+.step-card.active {
+  transform: translateY(-3px);
+  border-color: var(--red);
+  background: var(--yellow);
 }
 
 .step-card span {
@@ -308,10 +338,34 @@ a {
   font-weight: 900;
 }
 
-.step-card h3 {
+.step-card.active span,
+.step-card:hover span {
+  background: var(--red);
+  color: var(--white);
+}
+
+.step-card strong {
+  display: block;
   margin: 24px 0 0;
   font-size: 1rem;
   line-height: 1.25;
+}
+
+.flow-arrow {
+  display: none;
+  color: var(--red);
+  font-size: 1.7rem;
+  font-weight: 900;
+  text-align: center;
+}
+
+.process-description {
+  margin: 22px 0 0;
+  padding: 18px 20px;
+  border-radius: 8px;
+  background: var(--black);
+  color: var(--white);
+  font-weight: 900;
 }
 
 .table-wrap {
@@ -382,6 +436,63 @@ tbody tr:last-child td {
   min-height: 310px;
 }
 
+.simulator-panel {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.65fr) minmax(260px, 1fr);
+  gap: 18px;
+  align-items: end;
+  max-width: 820px;
+  padding: 24px;
+  border: 1px solid var(--border);
+  border-top: 10px solid var(--yellow);
+  border-radius: 8px;
+  background: var(--white);
+  box-shadow: var(--shadow);
+}
+
+.simulator-panel label {
+  display: grid;
+  gap: 10px;
+  color: var(--muted);
+  font-weight: 900;
+}
+
+.simulator-panel select {
+  width: 100%;
+  min-height: 48px;
+  padding: 0 12px;
+  border: 2px solid var(--black);
+  border-radius: 8px;
+  background: var(--paper);
+  color: var(--black);
+  font: inherit;
+  font-weight: 800;
+}
+
+.simulator-output {
+  padding: 18px;
+  border-radius: 8px;
+  background: var(--red);
+  color: var(--white);
+}
+
+.simulator-output span {
+  display: block;
+  font-weight: 900;
+}
+
+.simulator-output strong {
+  display: block;
+  margin: 6px 0;
+  color: var(--yellow);
+  font-size: 2.4rem;
+  line-height: 1;
+}
+
+.simulator-output p {
+  margin: 0;
+}
+
 .proposal-list {
   display: grid;
   gap: 12px;
@@ -403,18 +514,6 @@ tbody tr:last-child td {
   margin: 0;
   color: var(--muted);
   font-size: 1.14rem;
-}
-
-.team-grid {
-  grid-template-columns: repeat(7, 1fr);
-}
-
-.team-card {
-  display: grid;
-  place-items: center;
-  min-height: 92px;
-  padding: 14px;
-  font-weight: 900;
 }
 
 .site-footer {
@@ -447,13 +546,27 @@ tbody tr:last-child td {
   }
 
   .process-flow,
-  .kpi-grid,
-  .team-grid {
+  .kpi-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
   .hero {
     min-height: auto;
+  }
+}
+
+@media (min-width: 981px) {
+  .process-flow {
+    display: flex;
+    gap: 10px;
+  }
+
+  .step-card {
+    flex: 1;
+  }
+
+  .flow-arrow {
+    display: block;
   }
 }
 
@@ -496,7 +609,7 @@ tbody tr:last-child td {
   .status-strip,
   .process-flow,
   .kpi-grid,
-  .team-grid {
+  .simulator-panel {
     grid-template-columns: 1fr;
   }
 

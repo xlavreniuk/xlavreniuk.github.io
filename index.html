@@ -12,8 +12,8 @@
   <header class="site-header">
     <nav class="nav" aria-label="Hlavná navigácia">
       <a class="brand" href="#hero" aria-label="Domov">
-        <span class="brand-mark">S</span>
-        <span>SimFast</span>
+        <span class="brand-mark">M</span>
+        <span>McSim Lab</span>
       </a>
       <button class="nav-toggle" type="button" aria-label="Otvoriť navigáciu" aria-expanded="false">
         <span></span>
@@ -25,7 +25,7 @@
         <a href="#dataset">Dataset</a>
         <a href="#vysledky">Výsledky</a>
         <a href="#grafy">Grafy</a>
-        <a href="#tim">Tím</a>
+        <a href="#simulator">Simulátor</a>
       </div>
     </nav>
   </header>
@@ -35,7 +35,7 @@
       <div class="hero-content reveal">
         <p class="eyebrow">Univerzitný projekt v Cloudes simulation</p>
         <h1>Simulácia a optimalizácia objednávkového procesu</h1>
-        <p class="hero-subtitle">Profesionálna ukážka simulácie procesu vo fast-food reštaurácii inšpirovanej bežnou prevádzkou: príchod zákazníka, objednávka, platba, príprava a výdaj.</p>
+        <p class="hero-subtitle">Neoficiálna McDonald’s-style prezentácia simulácie rýchleho objednávania: príchod zákazníka, kiosk alebo pokladňa, platba, kuchyňa a výdaj objednávky.</p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="#vysledky">Pozrieť výsledky</a>
           <a class="btn btn-secondary" href="assets/dataset.xlsx" download>Stiahnuť dataset</a>
@@ -48,11 +48,11 @@
         </div>
         <div class="queue-card">
           <span>Priemerné čakanie</span>
-          <strong>7,8 min</strong>
+          <strong>4,61 min</strong>
           <small>po optimalizácii</small>
         </div>
         <div class="status-strip">
-          <span>Kiosk +1</span>
+          <span>McKiosk +1</span>
           <span>Kuchyňa +1</span>
           <span>Výdaj bez zmeny</span>
         </div>
@@ -67,7 +67,7 @@
       <div class="overview-grid">
         <article class="info-card reveal">
           <h3>Čo bolo simulované</h3>
-          <p>Model sleduje objednávkový proces od príchodu zákazníka až po odchod s objednávkou. Zahŕňa obsluhu pri objednaní, platbu, kapacitu kuchyne a výdajové miesto.</p>
+          <p>Model sleduje objednávkový proces v neoficiálnej McDonald’s-style prevádzke od príchodu zákazníka až po odchod s hotovou objednávkou.</p>
         </article>
         <article class="info-card reveal">
           <h3>Prečo vznikla simulácia</h3>
@@ -85,20 +85,26 @@
         <p class="eyebrow">Proces</p>
         <h2>Tok zákazníka v modeli</h2>
       </div>
-      <div class="process-flow">
-        <article class="step-card reveal"><span>01</span><h3>Príchod zákazníka</h3></article>
-        <article class="step-card reveal"><span>02</span><h3>Vytvorenie objednávky</h3></article>
-        <article class="step-card reveal"><span>03</span><h3>Platba</h3></article>
-        <article class="step-card reveal"><span>04</span><h3>Príprava jedla</h3></article>
-        <article class="step-card reveal"><span>05</span><h3>Výdaj objednávky</h3></article>
-        <article class="step-card reveal"><span>06</span><h3>Odchod zákazníka</h3></article>
+      <div class="process-flow reveal" aria-label="Klikateľný proces objednávky">
+        <button class="step-card active" type="button" data-step="arrival"><span>01</span><strong>Príchod zákazníka</strong></button>
+        <span class="flow-arrow" aria-hidden="true">→</span>
+        <button class="step-card" type="button" data-step="order"><span>02</span><strong>Objednávka</strong></button>
+        <span class="flow-arrow" aria-hidden="true">→</span>
+        <button class="step-card" type="button" data-step="payment"><span>03</span><strong>Platba</strong></button>
+        <span class="flow-arrow" aria-hidden="true">→</span>
+        <button class="step-card" type="button" data-step="kitchen"><span>04</span><strong>Príprava jedla</strong></button>
+        <span class="flow-arrow" aria-hidden="true">→</span>
+        <button class="step-card" type="button" data-step="pickup"><span>05</span><strong>Výdaj objednávky</strong></button>
+        <span class="flow-arrow" aria-hidden="true">→</span>
+        <button class="step-card" type="button" data-step="exit"><span>06</span><strong>Odchod zákazníka</strong></button>
       </div>
+      <p id="processDescription" class="process-description reveal">Príchod zákazníka: zákazník vstupuje do systému.</p>
     </section>
 
     <section id="dataset" class="section content-band">
       <div class="section-heading reveal">
         <p class="eyebrow">Dataset</p>
-        <h2>Ukážka vstupných a výstupných dát</h2>
+        <h2>Ukážka dát zo súboru Zakaznici_x50</h2>
       </div>
       <div class="table-wrap reveal">
         <table>
@@ -126,9 +132,9 @@
       <div class="kpi-grid">
         <article class="kpi-card reveal"><span>Počet zákazníkov</span><strong>500</strong></article>
         <article class="kpi-card reveal"><span>Dĺžka simulácie</span><strong>480 min</strong></article>
-        <article class="kpi-card reveal"><span>Čakanie pred optimalizáciou</span><strong>12,6 min</strong></article>
-        <article class="kpi-card reveal"><span>Čakanie po optimalizácii</span><strong>7,8 min</strong></article>
-        <article class="kpi-card highlight reveal"><span>Zlepšenie</span><strong>38 %</strong></article>
+        <article class="kpi-card reveal"><span>Čakanie pred optimalizáciou</span><strong>6,89 min</strong></article>
+        <article class="kpi-card reveal"><span>Čakanie po optimalizácii</span><strong>4,61 min</strong></article>
+        <article class="kpi-card highlight reveal"><span>Zlepšenie</span><strong>33,1 %</strong></article>
       </div>
     </section>
 
@@ -139,13 +145,34 @@
       </div>
       <div class="charts-grid">
         <article class="chart-card reveal">
-          <h3>Počet zákazníkov podľa hodín</h3>
+          <h3>Počet zákazníkov podľa hodín z datasetu</h3>
           <canvas id="customersChart"></canvas>
         </article>
         <article class="chart-card reveal">
-          <h3>Čakanie pred a po optimalizácii</h3>
+          <h3>Porovnanie metrík pred a po optimalizácii</h3>
           <canvas id="waitingChart"></canvas>
         </article>
+      </div>
+    </section>
+
+    <section id="simulator" class="section">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Fake funkcionalita</p>
+        <h2>Rýchly McSim odhad scenára</h2>
+      </div>
+      <div class="simulator-panel reveal">
+        <label for="scenarioSelect">Vyber scenár prevádzky</label>
+        <select id="scenarioSelect">
+          <option value="base">Základný stav</option>
+          <option value="kiosk">+1 samoobslužný McKiosk</option>
+          <option value="kitchen">+1 pracovník kuchyne</option>
+          <option value="full">McOptimalizácia: kiosk + kuchyňa</option>
+        </select>
+        <div class="simulator-output">
+          <span>Odhad čakania</span>
+          <strong id="scenarioWait">6,89 min</strong>
+          <p id="scenarioText">Aktuálny stav podľa datasetu pred optimalizáciou.</p>
+        </div>
       </div>
     </section>
 
@@ -167,23 +194,7 @@
         <p class="eyebrow">Záver</p>
         <h2>Prínos simulácie</h2>
       </div>
-      <p class="conclusion reveal">Simulácia ukázala, že aj malé zmeny v kapacite objednávania a prípravy môžu výrazne znížiť čakanie zákazníkov. Model je užitočný najmä preto, že umožňuje porovnať scenáre ešte pred ich zavedením v reálnej prevádzke.</p>
-    </section>
-
-    <section id="tim" class="section">
-      <div class="section-heading reveal">
-        <p class="eyebrow">Tím</p>
-        <h2>Autori projektu</h2>
-      </div>
-      <div class="team-grid">
-        <article class="team-card reveal">Person 1</article>
-        <article class="team-card reveal">Person 2</article>
-        <article class="team-card reveal">Person 3</article>
-        <article class="team-card reveal">Person 4</article>
-        <article class="team-card reveal">Person 5</article>
-        <article class="team-card reveal">Person 6</article>
-        <article class="team-card reveal">Person 7</article>
-      </div>
+      <p class="conclusion reveal">Simulácia ukázala, že pridanie jedného kiosku a jedného pracovníka kuchyne znížilo priemerné čakanie z 6,89 minúty na 4,61 minúty. Model je užitočný, pretože umožňuje porovnať prevádzkové scenáre pred ich zavedením v reálnej reštaurácii.</p>
     </section>
   </main>
 
