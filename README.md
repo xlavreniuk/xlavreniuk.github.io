@@ -38,7 +38,13 @@ Tlačidlá na stránke smerujú na:
 assets/dataset.xlsx
 ```
 
-Aktuálny súbor je iba placeholder. Pred odovzdaním projektu ho nahraďte finálnym Excel datasetom s rovnakým názvom.
+Stránka používa ručne extrahovanú ukážku a súhrnné hodnoty z aktuálneho Excel súboru:
+
+- `Zakaznici_x50` pre tabuľkový náhľad
+- `Vysledky` pre KPI hodnoty
+- `Grafy` pre hodinový graf zákazníkov
+
+Web je stále statický. Excel súbor sa v prehliadači neparsuje, aby stránka ostala bez backendu a bez ďalších knižníc.
 
 ## Poznámka
 
