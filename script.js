@@ -57,32 +57,3 @@ document.querySelectorAll('.step-card[data-step]').forEach((button) => {
     processDescription.textContent = processDescriptions[button.dataset.step];
   });
 });
-
-const scenarioData = {
-  base: {
-    wait: '6,89 min',
-    text: 'Aktuálny stav podľa datasetu pred optimalizáciou.'
-  },
-  kiosk: {
-    wait: '5,82 min',
-    text: 'Jeden dodatočný McKiosk znižuje tlak na objednávku, ale kuchyňa stále ostáva výrazným zdrojom čakania.'
-  },
-  kitchen: {
-    wait: '5,31 min',
-    text: 'Jeden pracovník kuchyne zrýchli prípravu, no časť zákazníkov ešte čaká pri objednávaní.'
-  },
-  full: {
-    wait: '4,61 min',
-    text: 'McOptimalizácia z datasetu: kiosk aj kuchyňa sú posilnené a výdajový pult ostáva nezmenený.'
-  }
-};
-
-const scenarioSelect = document.querySelector('#scenarioSelect');
-const scenarioWait = document.querySelector('#scenarioWait');
-const scenarioText = document.querySelector('#scenarioText');
-
-scenarioSelect.addEventListener('change', () => {
-  const selected = scenarioData[scenarioSelect.value];
-  scenarioWait.textContent = selected.wait;
-  scenarioText.textContent = selected.text;
-});
