@@ -7,9 +7,7 @@ Statická ukážková stránka pre univerzitný simulačný projekt optimalizác
 - HTML
 - CSS
 - JavaScript
-- Chart.js cez CDN
-
-Projekt nepoužíva backend, databázu, build nástroje ani platené služby.
+Projekt nepoužíva backend, databázu, build nástroje, grafové knižnice ani platené služby.
 
 ## Spustenie lokálne
 
@@ -42,8 +40,6 @@ Stránka používa ručne extrahovanú ukážku a súhrnné hodnoty z aktuálneh
 
 - `Zakaznici_x50` pre tabuľkový náhľad
 - `Vysledky` pre KPI hodnoty
-- `Grafy` pre hodinový graf zákazníkov
-
 Web je stále statický. Excel súbor sa v prehliadači neparsuje, aby stránka ostala bez backendu a bez ďalších knižníc.
 
 ## Poznámka
